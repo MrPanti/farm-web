@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt – Farma [Jméno]</title>
+    <link rel="stylesheet" href="styl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <h1>📞 Kontaktujte Nás</h1>
+        <p>Všechny cesty vedou na naši malinovou farmu!</p>
+    </header>
+
+    <nav class="navigace">
+        <a href="index.html">Domů</a>
+        <a href="o-nas.html">O Nás</a>
+        <a href="produkty.html">Produkty</a>
+        
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="kontejner">
+        
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 2.5em; color: var(--malina-akcent);">Mapa, Adresa a Přímé Spojení</h2>
+            <p style="font-size: 1.2em; color: #555;">Kontaktujte nás telefonicky, e-mailem nebo nás navštivte osobně.</p>
+        </header>
+
+        <section class="dvousloupec-kontakt">
+            <div class="kontakt-info">
+                <h3>📍 Najdete Nás Zde:</h3>
+                <p><strong>Adresa farmy:</strong><br> Strunkovice nad Volyňkou 33<br> 387 01 Strunkovice nad Volyňkou</p>
+                
+                <h3 style="margin-top: 30px;">📞 Přímý Kontakt:</h3>
+                <p><strong>Telefon:</strong> <a href="tel:+420725860671" style="color: var(--malina-akcent); text-decoration: none;">+420 725 860 671</a></p>
+                <p><strong>E-mail:</strong> <a href="mailto:DEF@farm.cz" style="color: var(--malina-akcent); text-decoration: none;">DEF@farm.cz</a></p>
+                
+                <h3 style="margin-top: 30px;">🗺️ Odkazy na Mapy:</h3>
+                <div class="mapa-tlacitka">
+                    <a href="https://mapy.cz/zakladni?q=Strunkovice%20nad%20Volyňkou%2033" target="_blank" class="tlacitko" style="background-color: #E55B00; padding: 8px 15px; font-size: 0.9em; margin-top: 5px;">Zobrazit na Mapy.cz</a>
+                    <a href="https://maps.app.goo.gl/9T7wR592D9yQf4Y26" target="_blank" class="tlacitko" style="background-color: #4285F4; padding: 8px 15px; font-size: 0.9em; margin-left: 10px; margin-top: 5px;">Zobrazit na Google Maps</a>
+                </div>
+            </div>
+            
+            <div class="mapa-misto">
+                <p style="text-align: center; color: var(--zelena-hluboka);">Interaktivní mapa:</p>
+                <iframe
+                    src="https://maps.google.com/maps?q=Strunkovice%20nad%20Volyňkou%2033&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="350" 
+                    style="border:0; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <hr style="border: 0; border-top: 2px dashed #ccc; margin: 40px 0;">
+
+        <section class="kontakt-formular">
+            <h3>✉️ Napište Nám</h3>
+            <p class="upozorneni" style="background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+                <strong>Důležité:</strong> Formulář je nastaven tak, že po odeslání **otevře váš e-mailový klient** (např. Outlook) s předvyplněnou adresou a textem. Pro automatické odesílání e-mailu přímo z webu by bylo potřeba pokročilé serverové řešení.
+            </p>
+            
+            <form action="mailto:DEF@farm.cz" method="GET" enctype="text/plain">
+                <div class="form-skupina">
+                    <label for="jmeno">Křestní jméno:</label>
+                    <input type="text" id="jmeno" name="jmeno" required>
+                </div>
+                <div class="form-skupina">
+                    <label for="prijmeni">Příjmení:</label>
+                    <input type="text" id="prijmeni" name="prijmeni" required>
+                </div>
+                <div class="form-skupina">
+                    <label for="email">E-mail (povinné):</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-skupina">
+                    <label for="telefon">Telefon (doporučeno, volitelné):</label>
+                    <input type="tel" id="telefon" name="telefon">
+                </div>
+                <div class="form-skupina">
+                    <label for="zprava">Vaše zpráva / poptávka:</label>
+                    <textarea id="zprava" name="body" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="tlacitko">Odeslat Zprávu E-mailem</button>
+            </form>
+        </section>
+        
+    </div>
+
+    <footer class="paticka">
+        <p>© 2025 DEF Farm. Všechna práva vyhrazena. | Kvalita a čerstvost z lokální produkce.</p>
+    </footer>
+
+</body>
+</html>

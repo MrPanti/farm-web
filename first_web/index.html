@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farma DEF Farm – Čerstvé Produkty Ze Dvora</title>
+    <link rel="stylesheet" href="styl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1>🌱 DEF Farm – Čerstvé Z Pole Na Váš Stůl!</h1>
+        <p>Tradice, kvalita a chuť pravé domácí produkce</p>
+    </header>
+
+    <nav class="navigace">
+        <a href="index.html">Domů</a>
+        <a href="o-nas.html">O Nás</a>
+        <a href="produkty.html">Produkty</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+    
+    <div class="hero-image">
+        <div class="hero-text">
+            <h2>Lokální Produkce, Chuť Tradiční Kvality.</h2>
+            <a href="produkty.html" class="tlacitko hero-tlacitko">Prohlédnout Aktuální Sklizeň</a>
+        </div>
+    </div>
+
+    <div class="kontejner">
+        
+        <div class="sekce-wrapper">
+            
+            <section class="sekce o-nas">
+                <h2>Kdo Jsme a Co Děláme</h2>
+                <p>Jsme rodinná farma s dlouholetou tradicí v regionu. Naše vášeň je pěstování a chov v souladu s přírodou. Věříme, že nejlepší chuť vzniká, když se nespěchá. Přijeďte se přesvědčit o kvalitě našich brambor, vajíček a sezónní zeleniny.</p>
+                <p>Na této půdě hospodaříme již 3 generace.</p>
+                <a href="#o-nas-cela-stranka" class="tlacitko">Přečíst celý náš příběh</a>
+            </section>
+            
+            <section class="sekce prodej">
+    <h2>Aktuální Prodej Ze Dvora</h2>
+    <p>Dnes je: <strong id="dnesni-den"></strong></p>
+    
+    <p><strong>Dnes v nabídce:</strong> Čerstvé maliny (pokud je sezóna), mražené maliny a zpracované produkty (šťáva, marmeláda).</p>
+    
+    <div class="prodej">
+        <ul>
+            <li><span>Středa:</span> 14:00 – 17:00</li>
+            <li><span>Pátek:</span> 09:00 – 11:30 a 14:00 – 16:00</li>
+            <li><span>Sobota:</span> 09:00 – 12:00</li>
+        </ul>
+    </div>
+    
+    <p>Nezapomeňte si vzít vlastní tašku!</p>
+    <a href="kontakt.html" class="tlacitko">Kontaktujte nás</a>
+</section>
+        </div>
+        
+    </div>
+
+    <footer class="paticka">
+        <p>&copy; 2025 DEF Farm. Všechna práva vyhrazena. | Kvalita a čerstvost z lokální produkce.</p>
+    </footer>
+
+    <script>
+        // Kód pro dynamické zobrazení dne v týdnu
+        const dnyVTydnu = ["neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"];
+        const dnes = new Date();
+        const cisloDne = dnes.getDay(); 
+        const elementDnesniDen = document.getElementById("dnesni-den");
+        elementDnesniDen.textContent = dnyVTydnu[cisloDne];
+    </script>
+</body>
+</html>

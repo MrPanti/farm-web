@@ -1,0 +1,473 @@
+/* =========================================================
+   FARMA 3.0: ULTIMATE EDITION (styl.css)
+   Vlastnosti: Fluid Dark Header, Monochrome Icons, Cinema Hero
+   ========================================================= */
+
+:root {
+    --c-bg: #f8fafc;           
+    --c-surface: #ffffff;      
+    
+    /* Extra tmavé barvy pro Header */
+    --c-dark-base: #000000;    
+    
+    --c-primary: #be123c;      /* Raspberry */
+    --c-primary-dark: #881337;
+    --c-accent: #15803d;       /* Forest Green */
+    
+    --c-text-main: #334155;    
+    --c-text-muted: #64748b;
+    --c-border: #e2e8f0;
+    
+    --font-head: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --radius-xl: 24px;
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--c-text-main);
+    background-color: var(--c-bg);
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 40px 40px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* --- 1. HLAVNÍ PANEL (FLUID DARK MIX) --- */
+.header {
+    /* Míchání barev: Černá, Hluboká Zelená, Temná Modrá, Temná Fialová */
+    background: linear-gradient(135deg, #000000, #022c22, #000000, #172554, #1e1b4b);
+    background-size: 400% 400%;
+    /* Komplexní animace míchání */
+    animation: fluidMix 20s ease-in-out infinite;
+    
+    color: white;
+    padding: 100px 20px 80px 20px;
+    text-align: center;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    margin-bottom: 60px;
+}
+
+@keyframes fluidMix {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 100%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 0%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Jemná mlha přes header */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, #000000 90%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.header h1 {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-shadow: 0 5px 30px rgba(0,0,0,0.8);
+    letter-spacing: -2px;
+    line-height: 1.1;
+    
+    /* Filtr pro sjednocení ikon (smajlíků) s textem - udělá je černobílé/světlé */
+    filter: grayscale(100%) brightness(200%); 
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 2;
+    margin-top: 15px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* --- 2. NAVIGACE --- */
+.navigace {
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    margin-top: -60px;
+    
+    width: fit-content;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 8px;
+    border-radius: 100px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    gap: 5px;
+}
+
+.navigace a {
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.navigace a:hover {
+    background: var(--c-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(190, 18, 60, 0.5);
+}
+
+/* --- 3. LAYOUT & KARTY --- */
+.kontejner {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 30px;
+}
+
+.sekce, .dvousloupec-o-nas, .dvousloupec-kontakt, .kontakt-formular, .produkt-karta {
+    background: var(--c-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    border: 1px solid white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.sekce:hover, .produkt-karta:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+h2 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--c-primary);
+    margin: 10px auto 0 auto;
+    border-radius: 4px;
+}
+
+/* --- 4. ÚVODNÍ STRÁNKA --- */
+.sekce-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.sekce {
+    padding: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prodej ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 400px;
+}
+.prodej ul li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed var(--c-border);
+    padding: 12px 0;
+    font-size: 1.05rem;
+    color: var(--c-text-main);
+}
+.prodej ul li span {
+    font-weight: 700;
+    color: var(--c-accent);
+    text-align: left;
+    min-width: 80px;
+}
+
+/* --- HERO IMAGE (Zvětšený & Upravený Text) --- */
+.hero-image {
+    width: 100%;
+    /* ZVĚTŠENÍ: 75% výšky obrazovky */
+    height: 75vh; 
+    min-height: 600px;
+    
+    background-image: url('placeholder-farma.jpg'); 
+    background-size: cover; 
+    background-position: center; /* Střed obrázku */
+    
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    margin-bottom: 40px;
+    border: 8px solid white; 
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+/* ZMENŠENÁ DLAŽDICE S TEXTEM */
+.hero-text {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 25px 35px; /* Menší padding */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+    /* Zmenšená šířka pro lepší viditelnost obrázku */
+    max-width: 380px; 
+    text-align: left;
+}
+
+.hero-text h2 {
+    margin: 0; 
+    font-size: 2rem; 
+    color: var(--c-primary);
+    border: none;
+    display: block;
+}
+.hero-text h2::after { display: none; }
+
+/* --- 5. PRODUKTY (Full Images) --- */
+.produkt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.produkt-karta {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+}
+
+.produkt-karta img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Vyplnit */
+    background: white;
+    padding: 0;
+    border-bottom: 4px solid var(--c-primary);
+}
+
+.produkt-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.produkt-hlavicka {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.produkt-hlavicka h3 { font-size: 1.4rem; margin: 0; color: #0f172a; }
+
+.kategorie {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--c-accent);
+    background: #dcfce7;
+    padding: 6px 12px;
+    border-radius: 100px;
+}
+
+.produkt-info p { margin-bottom: 25px; flex-grow: 1; color: var(--c-text-muted); }
+
+.produkt-spodek {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--c-border);
+    padding-top: 20px;
+}
+.cena { font-size: 1.6rem; font-weight: 800; color: var(--c-primary); }
+
+/* --- 6. O NÁS --- */
+.dvousloupec-o-nas {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    padding: 60px;
+    align-items: center;
+}
+
+.text-blok h3 { text-align: left; color: #0f172a; }
+.text-blok h3::after { margin: 15px 0 0 0; }
+
+.obrazek-blok img {
+    width: 100%;
+    height: 450px; 
+    object-fit: cover; 
+    object-position: top center; 
+    border-radius: var(--radius-xl);
+    box-shadow: 20px 20px 0 var(--c-primary-light);
+}
+
+/* --- 7. KONTAKT (Grid Buttons) --- */
+.dvousloupec-kontakt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+}
+
+.kontakt-info {
+    padding: 60px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.kontakt-info h3 { text-align: left; }
+.kontakt-info h3::after { margin: 15px 0 0 0; }
+
+/* Tlačítka mapy - Grid pro zarovnání */
+.mapa-tlacitka {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dva sloupce */
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+}
+.mapa-tlacitka a {
+    text-align: center;
+    background: var(--c-bg);
+    color: var(--c-text-main);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--c-border);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mapa-tlacitka a:hover {
+    background: var(--c-primary);
+    color: white;
+    border-color: var(--c-primary);
+}
+
+.mapa-misto { height: 100%; min-height: 500px; }
+.mapa-misto iframe {
+    width: 100%; height: 100%; border: none; display: block;
+    filter: grayscale(0%);
+}
+
+/* Formulář */
+.kontakt-formular {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 50px;
+    background: white;
+    text-align: center;
+    border: 1px solid var(--c-border);
+}
+.kontakt-formular h3 { color: var(--c-primary); }
+.form-skupina { margin-bottom: 20px; text-align: left; }
+.kontakt-formular label {
+    font-weight: 700; color: var(--c-text-main); margin-bottom: 8px; display: block;
+}
+.kontakt-formular input, .kontakt-formular textarea {
+    width: 100%; padding: 16px; 
+    background: #f8fafc;
+    border: 2px solid var(--c-border);
+    border-radius: 12px; font-size: 1rem; transition: all 0.3s;
+    box-sizing: border-box;
+}
+.kontakt-formular input:focus, .kontakt-formular textarea:focus {
+    border-color: var(--c-primary); outline: none; background: white;
+    box-shadow: 0 0 0 4px rgba(190, 18, 60, 0.1);
+}
+
+/* --- TLAČÍTKA --- */
+.tlacitko, .hero-tlacitko {
+    display: inline-block;
+    background: var(--c-primary);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(190, 18, 60, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.tlacitko:hover {
+    transform: translateY(-3px);
+    background: var(--c-primary-dark);
+    box-shadow: 0 15px 30px rgba(190, 18, 60, 0.4);
+}
+
+/* Patička */
+.paticka {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 80px;
+}
+
+/* --- RESPONSIVITA --- */
+@media (max-width: 900px) {
+    .dvousloupec-o-nas, .dvousloupec-kontakt, .sekce-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .text-blok h3::after { margin: 15px auto; }
+    .text-blok h3 { text-align: center; }
+    .mapa-tlacitka { grid-template-columns: 1fr; }
+    .navigace { width: 95%; }
+    .header { padding: 80px 20px; }
+    
+    .hero-image { height: 400px; padding: 20px; align-items: flex-end; }
+    .hero-text { max-width: 100%; width: 100%; }
+}
